@@ -1,5 +1,8 @@
 package com.mesofi.myth.collection.core.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,15 +16,21 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class MythFigurine {
+public class Figurine extends BaseFigurine {
+
+  @NotBlank
+  @Size(min = 3, max = 20)
   private String baseName;
+
+  private String displayableName; // This field is calculated ...
 
   private LineUp lineUp;
   private Series series;
   private Category category;
+  private Status status; // This field is calculated ...
 
   private boolean revival;
   private boolean oce;
@@ -35,4 +44,6 @@ public class MythFigurine {
   private boolean set;
 
   private Anniversary anniversary;
+
+  @EqualsAndHashCode.Exclude private List<Restock> restocks; // This field is calculated
 }

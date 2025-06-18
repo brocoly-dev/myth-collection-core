@@ -12,6 +12,8 @@
         <maven.compiler.target>24</maven.compiler.target>
         <spotless-maven-plugin.version>2.43.0</spotless-maven-plugin.version>
         <lombok.version>1.18.38</lombok.version>
+        <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+        <opencsv.version>5.10</opencsv.version>
     </properties>
 
     <dependencies>
@@ -22,12 +24,24 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- OpenCSV -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
+        </dependency>
         <!-- JUnit 5 (Jupiter) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.10.2</version>
             <scope>test</scope>
+        </dependency>
+        <!-- Jakarta Validation -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta.validation-api.version}</version>
         </dependency>
     </dependencies>
     
